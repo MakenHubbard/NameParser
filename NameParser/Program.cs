@@ -1,4 +1,5 @@
 ﻿using System;
+using NameParser.Names;
 
 namespace NameParser
 {
@@ -6,49 +7,20 @@ namespace NameParser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your first name");
-            var firstName = Console.ReadLine();
+            var firstName = new FirstName();
+            firstName.GetName();
+            firstName.PrintName();
 
-            foreach (var letter in firstName)
-            {
-                Console.WriteLine(letter);
-            }
+            var lastName = new LastName();
+            lastName.GetName();
+            lastName.PrintName();
 
-            Console.WriteLine("Enter your last name");
-            var lastName = Console.ReadLine();
-            var lastNameWithSpaces = "";
+            var middleName = new MiddleName();
+            middleName.GetName(firstName.Name);
+            middleName.PrintName();
 
-            foreach (var letter in lastName.ToUpper())
-            {
-                lastNameWithSpaces += letter + " ";
-            }
-
-            Console.WriteLine(lastNameWithSpaces.Trim());
-            Console.WriteLine("Do you have a middle name? (y/n)");
-
-            var hasMiddleName = Console.ReadLine();
-            var middleName = Console.ReadLine();
-
-
-            if (hasMiddleName == "y")
-            {
-                Console.WriteLine("What is your middle name");
-                var i = 0;
-
-                foreach(var letter in middleName)
-                {
-                    Console.WriteLine(letter.ToString().PadLeft(++i));
-                }
-            }
-            else
-            {
-                Console.WriteLine(@"You are dumb and shouldn't have been born. And your parents hate you.");
-            }
-
-            Console.WriteLine($"Goodbye {firstName} {middleName} {lastName}. Press Enter to exist");
+            Console.WriteLine($@"GoddBye {firstName.Name} {middleName.Name} {lastName.Name}. Press Enter and gtfo");
             Console.ReadLine();
-
-
         }
     }
 }
