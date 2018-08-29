@@ -8,14 +8,15 @@ namespace NameParser
         static void Main(string[] args)
         {
             var firstName = new FirstName();
+            var middleName = new MiddleName(firstName);
+            var lastName = new LastName();
+
             firstName.GetName();
             firstName.PrintName();
 
-            var lastName = new LastName();
             lastName.GetName();
             lastName.PrintName();
 
-            var middleName = new MiddleName();
             middleName.GetName(firstName.Name);
             middleName.PrintName();
 
