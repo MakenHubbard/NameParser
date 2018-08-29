@@ -5,18 +5,27 @@ using System.Text;
 
 namespace NameParser.Names
 {
-    class MiddleName
+    class MiddleName : NameBase
     {
-        private readonly FirstName _firstName;
+        FirstName _firstName;
 
-        public string Name { get; private set; }
-
-        public MiddleName(FirstName firstName)
+        public MiddleName(FirstName firstName) : base("middle")
         {
             Name = "";
             _firstName = firstName;
         }
-        #region MyRegion
+
+        public override void GetName()
+        {
+            if (ConfrimMiddleName())
+            {
+                base.GetName();
+            }
+            else
+            {
+                Console.WriteLine($@"{_firstName.Name}, that's fine.");
+            }
+        }
 
         bool ConfrimMiddleName()
         {
@@ -27,20 +36,6 @@ namespace NameParser.Names
             return hasMiddleName == "y";
         }
 
-        public void GetName(string firstName)
-        {
-            if (ConfrimMiddleName())
-            {
-                Console.WriteLine("What it is");
-                Name = Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine($@"{firstName}, that's fine.");
-            }
-        }
-
-
         public void PrintName()
         {
             var i = 0;
@@ -49,8 +44,7 @@ namespace NameParser.Names
             {
                 Console.WriteLine(letter.ToString().PadLeft(++i));
             }
-        }  
+        }
 
-        #endregion
     }
 }

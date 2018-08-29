@@ -8,17 +8,19 @@ namespace NameParser.Names
     {
         private readonly string _whichName;
 
-        public string Name { get; private set; }
+        public string Name { get; protected set; }
 
         public NameBase(string whichName)
         {
             _whichName = whichName;
         }
 
-        public void GetName()
+        public virtual void GetName()
         {
             Console.WriteLine($"Enter your {_whichName} name");
             Name = Console.ReadLine();
         }
+
+        public abstract void PrintName();
     }
 }
