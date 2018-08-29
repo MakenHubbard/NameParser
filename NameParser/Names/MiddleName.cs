@@ -7,8 +7,16 @@ namespace NameParser.Names
 {
     class MiddleName
     {
+        private readonly FirstName _firstName;
 
-        public string Name { get; private set; } = "";
+        public string Name { get; private set; }
+
+        public MiddleName(FirstName firstName)
+        {
+            Name = "";
+            _firstName = firstName;
+        }
+        #region MyRegion
 
         bool ConfrimMiddleName()
         {
@@ -43,5 +51,6 @@ namespace NameParser.Names
             }
         }  
 
+        #endregion
     }
 }
