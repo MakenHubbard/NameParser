@@ -36,7 +36,7 @@ namespace NameParser.Names
             return hasMiddleName == "y";
         }
 
-        public void PrintName()
+        public override void PrintName()
         {
             var i = 0;
 

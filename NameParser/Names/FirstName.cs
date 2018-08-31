@@ -11,7 +11,7 @@ namespace NameParser.Names
         {
 
         }
-        public void PrintName()
+        public override void PrintName()
         {
             foreach (var letter in Name)
             {
